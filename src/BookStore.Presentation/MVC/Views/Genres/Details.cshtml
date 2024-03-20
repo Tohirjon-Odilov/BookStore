@@ -1,7 +1,42 @@
 ﻿@using BookStore.Domain.Entities
 @model Genre
 
-<div>
-    <h1>@Model.Id</h1>
-    <h1>@Model.Name</h1>
-</div>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("View All", "Index")
+
+        @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" id="txtName" name="searchparam" placeholder="type here to search" />
+                    </td>
+                    <td>
+                        <input type="submit" id="btnSubmit" value="Search" />
+                    </td>
+                </tr>
+            </table>
+        }
+
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+
+    </table>
+
+

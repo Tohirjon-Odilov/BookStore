@@ -43,5 +43,12 @@ namespace MVC.Controllers
             var res = await _mediator.Send(query);
             return RedirectToAction(actionName: nameof(Index));
         }
+
+        public ActionResult Details(int Id)
+        {
+            //FriendsInfo frnds = new FriendsInfo();
+            //frnds = db.FriendsInfo.Find(Id);
+            return PartialView("_Details", "salom");
+        }
     }
 }
